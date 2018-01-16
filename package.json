@@ -1,0 +1,38 @@
+{
+  "name": "nodejs_api",
+  "version": "1.0.0",
+  "description": "NodeJS Application Demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=development PORT=3001 babel-node ./bin/server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dharmatin/nodejs-api.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "API",
+    "Demo"
+  ],
+  "author": "Deni Dharmatin As",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dharmatin/nodejs-api/issues"
+  },
+  "homepage": "https://github.com/dharmatin/nodejs-api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dateformat": "^3.0.2",
+    "express": "^4.16.2",
+    "winston": "^2.4.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "morgan": "^1.9.0"
+  }
+}
