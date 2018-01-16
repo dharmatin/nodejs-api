@@ -1,0 +1,12 @@
+{
+  "development": {
+    "writeLog": true,
+    "accessLog": "/logs"
+  },
+  "beta": {
+
+  },
+  "production": {
+    
+  }
+}
