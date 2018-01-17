@@ -4,8 +4,8 @@
   "description": "NodeJS Application Demo",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development PORT=3001 babel-node ./bin/server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon --exec NODE_ENV=development PORT=3001 babel-node ./bin/server",
+    "test:unit": "NODE_ENV=development mocha ./tests/unit --require babel-register --require babel-polyfill"
   },
   "repository": {
     "type": "git",
@@ -23,16 +23,24 @@
   },
   "homepage": "https://github.com/dharmatin/nodejs-api#readme",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "dateformat": "^3.0.2",
     "express": "^4.16.2",
+    "solr-client": "^0.7.0",
     "winston": "^2.4.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
-    "morgan": "^1.9.0"
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^4.1.0",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.14.11",
+    "sinon": "^4.1.5"
   }
 }
