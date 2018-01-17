@@ -1,0 +1,17 @@
+{
+  "development": {
+    "host": "internal-id-stgsolr-1117783231.ap-southeast-1.elb.amazonaws.com",
+    "port": 8080,
+    "path": "/solr-slave"
+  },
+  "beta": {
+    "host": "internal-id-stgsolr-1117783231.ap-southeast-1.elb.amazonaws.com",
+    "port": 8080,
+    "path": "/solr-slave"
+  },
+  "production": {
+    "host": "internal-id-stgsolr-1117783231.ap-southeast-1.elb.amazonaws.com",
+    "port": 8080,
+    "path": "/solr-slave"
+  }
+}
