@@ -5,7 +5,8 @@ import path from "path";
 import fs from "fs";
 import config from "./common/config.json";
 import dateFormat from "dateformat";
-import logger from "./libs/logger";
+import routes from "./routes";
+
 const app = express();
 const accessLogStream = fs.createWriteStream(
   path.join(__dirname, `${config.development.accessLog}/access-${dateFormat(new Date(), "yyyymmdd")}.log`), 
@@ -21,6 +22,8 @@ accessLog.token('date', function() {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(accessLog('combined', {stream: accessLogStream}));
+
+routes(app);
 
 export default app;
 
