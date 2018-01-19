@@ -10,8 +10,8 @@ export class Listing extends Solr {
   async search(id) {
     const qCondition = id ? `id:${id}`: '*:*';
     const query = this.createQuery().q(qCondition).start(0).rows(10);
-    return await this.searchAsync(query);
+    return this.searchAsync(query);
   }
 }
 
-export default Listing = new Listing();
+export default new Listing();
