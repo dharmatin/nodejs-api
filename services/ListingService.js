@@ -18,6 +18,19 @@ export class ListingService extends BaseService {
       listings: listingCollection.response.docs
     };
   }
+
+  async getListingById(id) {
+    const listingCollection = await this.listingModel.search(id);
+    const slorStatus = listingCollection.responseHeader.status;
+    
+    if (slorStatus !== 0)
+      throw new Error('Solr Search Error!');
+    
+    return {
+      number: 1,
+      listing: listingCollection.response.docs[0]
+    }
+  }
 }
 
 export default new ListingService(ListingModel);
