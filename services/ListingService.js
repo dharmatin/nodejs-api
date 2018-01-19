@@ -20,4 +20,4 @@ export class ListingService extends BaseService {
   }
 }
 
-export default ListingService = new ListingService(ListingModel);
+export default new ListingService(ListingModel);
