@@ -1,30 +1,50 @@
-import listingService from "../../services/ListingService";
+import { ListingService } from "../../services/ListingService";
 import listingDao from "../../dao/solr/listing";
 import chaiAsPromised from "chai-as-promised";
+import sinonChai from "sinon-chai";
 import chai from "chai";
+import sinon from "sinon";
 
 chai.use(chaiAsPromised);
+chai.use(sinonChai);
 const {expect} = chai;
+const sandbox = sinon.createSandbox();
 
-// describe("Listing Service", () => {
-//   describe("#getAllListings", () => {
-//     it("Should be return object and get writeLog is true", () => {
-//       expect(listingService.getAllListings()).to.be.an("object");
-//     })        
-//   });
-// })
+describe("Listing Service", () => {
+  describe("#getAllListings", () => {
+    const baseResponse = {
+      response: {
+        numFound: 1,
+        docs: [
+          {name: 'listing'}
+        ]
+      },
+      responseHeader: {
+        status: 0
+      }
+    }
 
+    afterEach(() => {
+      sandbox.restore();
+    })
 
-describe("Listing DAO", () => {
-  describe("#all", () => {
-    it("Should be return all listing from solr", () => {
-      const result = listingDao.search();
-      return expect(result).to.eventually.have.property("responseHeader").and.to.have.property("status").eventually.equal(0);
-    });
+    it('should return all listings get from solr', () => {
+      sandbox.stub(listingDao, 'search').callsFake(() => baseResponse);
+      const listingService = new ListingService(listingDao);
+      const result = listingService.getAllListings();
 
-    it("Should be rejected if the status header not equal 0", () => {
-      const result = listingDao.search();
-      return expect(result).to.eventually.have.property("responseHeader").and.to.have.property("status").equal(1).to.be.rejected;
+      return expect(result).to.eventually.deep.equal({
+        number: 1,
+        listings: [{name: 'listing'}]
+      });
+    })
+
+    it('should throw error when the solr status is not 0', () => {
+      const errorResponse = Object.assign(baseResponse, {responseHeader: {status:1}});
+      sandbox.stub(listingDao, 'search').callsFake(() => errorResponse);
+      const listingService = new ListingService(listingDao);
+      expect(listingService.getAllListings()).to.eventually
+      .be.rejectedWith('Solr search error!').and.be.an.instanceOf(Error);
     })
   })
 })
