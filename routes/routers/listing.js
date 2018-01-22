@@ -1,8 +1,9 @@
 import express from "express";
-import { getAllListings } from "../../controllers/listing";
+import { getAllListings, getListingById } from "../../controllers/listing";
 
 const router = express.Router();
 
 router.get("/", getAllListings);
+router.get("/:id", getListingById);
 
 export default router;

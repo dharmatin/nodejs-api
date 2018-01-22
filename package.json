@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec NODE_ENV=development PORT=3001 babel-node ./bin/server",
-    "test:unit": "NODE_ENV=development mocha ./tests/unit --require babel-register --require babel-polyfill"
+    "test:unit": "NODE_ENV=test mocha ./tests/unit --require babel-register --require babel-polyfill",
+    "test:integration": "NODE_ENV=test mocha ./tests/integration --require babel-register --require babel-polyfill"
   },
   "repository": {
     "type": "git",
@@ -38,9 +39,11 @@
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
+    "get-port": "^3.2.0",
     "mocha": "^4.1.0",
     "morgan": "^1.9.0",
     "nodemon": "^1.14.11",
+    "request": "^2.83.0",
     "sinon": "^4.1.5",
     "sinon-chai": "^2.14.0"
   }

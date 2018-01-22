@@ -8,5 +8,9 @@
   },
   "production": {
     
+  },
+  "test": {
+    "writeLog": true,
+    "accessLog": "/logs"
   }
 }
