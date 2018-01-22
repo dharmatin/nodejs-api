@@ -79,5 +79,6 @@ describe("Listing Service", () => {
       expect(listingService.getAllListings()).to.eventually
       .be.rejectedWith('Solr search error!').and.be.an.instanceOf(Error);
     })
+
   })
 })
