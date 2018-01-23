@@ -1,0 +1,13 @@
+{
+  "require": [
+    "babel-register",
+    "babel-polyfill"
+  ],
+  "exclude": ["tests/**/*.spec.js"],
+  "watermarks": {
+    "lines": [80, 90],
+    "functions": [80, 90],
+    "branches": [80, 90],
+    "statements": [80, 90]
+  }
+}
