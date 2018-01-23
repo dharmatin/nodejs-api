@@ -1,19 +1,18 @@
-import BaseService from "./BaseService";
-import ListingModel from "../dao/solr/listing";
+// import BaseService from "./BaseService";
+import ListingModel from '../dao/solr/listing';
 
-export class ListingService extends BaseService {
+export class ListingService {
 
   constructor(listingModel) {
-    super();
+    // super();
     this.listingModel = listingModel;
   }
   async getAllListings() {
     const listingCollection = await this.listingModel.search();
     const slorStatus = listingCollection.responseHeader.status;
     
-    if (slorStatus !== 0) {
+    if (slorStatus !== 0)
       throw new Error('Solr search error!');
-    }
     
     return {
       number: listingCollection.response.numFound,
@@ -31,7 +30,7 @@ export class ListingService extends BaseService {
     return {
       number: 1,
       listing: listingCollection.response.docs[0]
-    }
+    };
   }
 }
 

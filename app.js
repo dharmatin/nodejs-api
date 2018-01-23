@@ -1,15 +1,15 @@
-import express from "express";
-import bodyParser from "body-parser";
-import accessLog from "morgan";
-import path from "path";
-import fs from "fs";
-import config from "./common/config.json";
-import dateFormat from "dateformat";
-import routes from "./routes";
+import express from 'express';
+import bodyParser from 'body-parser';
+import accessLog from 'morgan';
+import path from 'path';
+import fs from 'fs';
+import config from './common/config.json';
+import dateFormat from 'dateformat';
+import routes from './routes';
 
 const app = express();
 const accessLogStream = fs.createWriteStream(
-  path.join(__dirname, `${config.development.accessLog}/access-${dateFormat(new Date(), "yyyymmdd")}.log`), 
+  path.join(__dirname, `${config.development.accessLog}/access-${dateFormat(new Date(), 'yyyymmdd')}.log`), 
   {flags: 'a'}
 );
 

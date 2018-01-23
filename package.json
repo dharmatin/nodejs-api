@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon --exec NODE_ENV=development PORT=3001 babel-node ./bin/server",
     "test:unit": "cross-env NODE_ENV=test nyc mocha tests/unit",
-    "test:integration": "cross-env NODE_ENV=test nyc mocha tests/integration"
+    "test:integration": "cross-env NODE_ENV=test nyc mocha tests/integration",
+    "fixLint": "eslint app.js --fix"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
     "babel-plugin-istanbul": "^4.1.5",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
