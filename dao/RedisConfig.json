@@ -11,5 +11,9 @@
   "production": {
     "host": "",
     "port": 6379
+  },
+  "test": {
+    "host": "10.201.30.25",
+    "port": 6379
   }
 }
