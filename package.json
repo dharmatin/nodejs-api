@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec NODE_ENV=development PORT=3001 babel-node ./bin/server",
-    "test:unit": "cross-env NODE_ENV=test mocha --require babel-register --require babel-polyfill tests/unit",
-    "test:integration": "cross-env NODE_ENV=test mocha tests/integration --require babel-register --require babel-polyfill",
+    "test:unit": "cross-env NODE_ENV=test mocha --require babel-register --require babel-polyfill ./tests/unit/*.spec.js",
+    "test:integration": "cross-env NODE_ENV=test mocha ./tests/integration --require babel-register --require babel-polyfill",
     "eslint:fix": "eslint ./ --fix",
     "eslint": "eslint ./"
   },
@@ -31,6 +31,7 @@
     "dateformat": "^3.0.2",
     "express": "^4.16.2",
     "lodash": "^4.17.4",
+    "redis": "^2.8.0",
     "solr-client": "^0.7.0",
     "winston": "^2.4.0"
   },
