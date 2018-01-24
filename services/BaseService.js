@@ -1,4 +1,4 @@
-import config from "../common/config.json";
+import config from '../common/config.json';
 
 export default class BaseService {
   

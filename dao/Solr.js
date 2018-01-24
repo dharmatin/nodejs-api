@@ -1,6 +1,6 @@
-import solr from "solr-client";
-import config from "./SolrConfig.json";
-import bluebird from "bluebird";
+import solr from 'solr-client';
+import config from './SolrConfig.json';
+import bluebird from 'bluebird';
 
 export default class SolrClient {
 
