@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec NODE_ENV=development PORT=3001 babel-node ./bin/server",
-    "test:unit": "cross-env NODE_ENV=test nyc mocha tests/unit",
+    "test:unit": "cross-env NODE_ENV=test nyc mocha tests/unit --require babel-register --require babel-polyfill",
     "test:integration": "cross-env NODE_ENV=test nyc mocha tests/integration"
   },
   "repository": {
@@ -34,6 +34,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
     "babel-plugin-istanbul": "^4.1.5",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
@@ -41,6 +42,7 @@
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "cross-env": "^5.1.3",
+    "eslint": "^4.16.0",
     "get-port": "^3.2.0",
     "istanbul": "^0.4.5",
     "mocha": "^4.1.0",
