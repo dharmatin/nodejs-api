@@ -7,7 +7,7 @@ import bluebird from 'bluebird';
 const req = bluebird.promisifyAll(request);
 describe('Listing API', () => {
   let baseUrl, server;
-  before( async() => {
+  before(async () => {
     const port = await getPort();
     baseUrl = `http://localhost:${port}/v1/listing`;
     server = app.listen(port);
@@ -21,7 +21,7 @@ describe('Listing API', () => {
 
   describe('/GET /v1/listing', () => {
     let result;
-    before(async() => {
+    before(async () => {
       result = await req.getAsync(baseUrl);
     });
     it('should return 200 for HTTP Header and return code 200 with message SUCCESS in body', (done) => {
@@ -35,7 +35,7 @@ describe('Listing API', () => {
   describe('/GET /v1/listing/:id', () => {
     let result;
     const id = 'lar108011';
-    before(async() => {
+    before(async () => {
       result = await req.getAsync(`${baseUrl}/${id}`);
     });
 

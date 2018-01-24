@@ -11,7 +11,6 @@ const {expect} = chai;
 const sandbox = sinon.createSandbox();
 
 describe('Listing Service', () => {
-
   afterEach(() => {
     sandbox.restore();
   });
@@ -40,7 +39,7 @@ describe('Listing Service', () => {
     });
 
     it('should throw error when the solr status is not 0', () => {
-      const errorResponse = Object.assign(baseResponse, {responseHeader: {status:1}});
+      const errorResponse = Object.assign(baseResponse, {responseHeader: {status: 1}});
       sandbox.stub(listingDao, 'search').callsFake(() => errorResponse);
       const listingService = new ListingService(listingDao);
       expect(listingService.getAllListings()).to.eventually
@@ -50,7 +49,7 @@ describe('Listing Service', () => {
 
   describe('#getListingById', () => {
     const id = 'lar107537';
-    const baseResponse = { 
+    const baseResponse = {
       responseHeader: {
         status: 0
       },
@@ -58,8 +57,8 @@ describe('Listing Service', () => {
         numFound: 1,
         docs: [
           {id: id}
-        ] 
-      } 
+        ]
+      }
     };
 
     it(`Should be return 1 listing with id ${id}`, () => {
@@ -73,12 +72,11 @@ describe('Listing Service', () => {
     });
 
     it('should throw error when the solr status is not 0', () => {
-      const errorResponse = Object.assign(baseResponse, {responseHeader: {status:1}});
+      const errorResponse = Object.assign(baseResponse, {responseHeader: {status: 1}});
       sandbox.stub(listingDao, 'search').callsFake(() => errorResponse);
       const listingService = new ListingService(listingDao);
       expect(listingService.getAllListings()).to.eventually
         .be.rejectedWith('Solr search error!').and.be.an.instanceOf(Error);
     });
-
   });
 });

@@ -4,7 +4,13 @@
         "node": true,
         "mocha": true
     },
-    "extends": "eslint:recommended",
+    "extends": "standard",
+    "plugins":[
+        "import",
+        "node",
+        "promise",
+        "standard"
+    ],
     "parser": "babel-eslint",
     "parserOptions": {
         "sourceType": "module"

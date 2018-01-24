@@ -2,31 +2,28 @@
 import ListingModel from '../dao/solr/listing';
 
 export class ListingService {
-
-  constructor(listingModel) {
+  constructor (listingModel) {
     // super();
     this.listingModel = listingModel;
   }
-  async getAllListings() {
+  async getAllListings () {
     const listingCollection = await this.listingModel.search();
     const slorStatus = listingCollection.responseHeader.status;
-    
-    if (slorStatus !== 0)
-      throw new Error('Solr search error!');
-    
+
+    if (slorStatus !== 0) { throw new Error('Solr search error!'); }
+
     return {
       number: listingCollection.response.numFound,
       listings: listingCollection.response.docs
     };
   }
 
-  async getListingById(id) {
+  async getListingById (id) {
     const listingCollection = await this.listingModel.search(id);
     const slorStatus = listingCollection.responseHeader.status;
 
-    if (slorStatus !== 0)
-      throw new Error('Solr search error!');
-    
+    if (slorStatus !== 0) { throw new Error('Solr search error!'); }
+
     return {
       number: 1,
       listing: listingCollection.response.docs[0]

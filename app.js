@@ -9,14 +9,14 @@ import routes from './routes';
 
 const app = express();
 const accessLogStream = fs.createWriteStream(
-  path.join(__dirname, `${config.development.accessLog}/access-${dateFormat(new Date(), 'yyyymmdd')}.log`), 
+  path.join(__dirname, `${config.development.accessLog}/access-${dateFormat(new Date(), 'yyyymmdd')}.log`),
   {flags: 'a'}
 );
 
-//set date token to localtime
-accessLog.token('date', function() {
-  var p = new Date().toString().replace(/[A-Z]{3}\+/,'+').split(/ /);
-  return( p[2]+'/'+p[1]+'/'+p[3]+':'+p[4]+' '+p[5] );
+// set date token to localtime
+accessLog.token('date', () => {
+  var p = new Date().toString().replace(/[A-Z]{3}\+/, '+').split(/ /);
+  return (p[2] + '/' + p[1] + '/' + p[3] + ':' + p[4] + ' ' + p[5]);
 });
 
 app.use(bodyParser.json());
@@ -26,5 +26,3 @@ app.use(accessLog('combined', {stream: accessLogStream}));
 routes(app);
 
 export default app;
-
-

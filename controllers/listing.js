@@ -4,7 +4,7 @@ export const getAllListings = async (req, res) => {
   const data = await listingService.getAllListings();
   res
     .status(200)
-    .json({code: 200, data:data, message: 'SUCCESS'})
+    .json({code: 200, data: data, message: 'SUCCESS'})
     .end();
 };
 

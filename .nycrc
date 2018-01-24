@@ -1,4 +1,12 @@
 {
+  "all": true,
+  "include":[
+    "**/*.js"
+  ],
+  "exclude":[
+    "**/*.spec.js",
+    "node_modules/"
+  ],
   "watermarks": {
     "lines": [80, 90],
     "functions": [80, 90],
