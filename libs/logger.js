@@ -1,12 +1,9 @@
-import config from "../common/config";
-import winston from "winston";
-import path from "path";
-import fs from "fs";
-import dateFormat from "dateformat";
+import winston from 'winston';
+import dateFormat from 'dateformat';
 
 class Logger {
   constructor() {
-    const filename = `/media/dharmatin/Data/nodefier/node-api/logs/test-${dateFormat(new Date(), "yyyymmdd")}.log`;
+    const filename = `/media/dharmatin/Data/nodefier/node-api/logs/test-${dateFormat(new Date(), 'yyyymmdd')}.log`;
 
     return new (winston.Logger)({
       // level: 'debug',
@@ -15,10 +12,10 @@ class Logger {
           filename: filename, 
           json: false,
           timestamp: function() {
-            return dateFormat(new Date(), "yyyy/mm/dd hh:MM:ss");
+            return dateFormat(new Date(), 'yyyy/mm/dd hh:MM:ss');
           },
           formatter: function(options) {
-            return `${options.timestamp()} [${options.level}]: [${options.message}]`
+            return `${options.timestamp()} [${options.level}]: [${options.message}]`;
           }
         })
       ]

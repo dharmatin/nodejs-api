@@ -1,6 +1,6 @@
-import Solr from "../Solr";
+import Solr from '../Solr';
 
-const CORE_LISTING = "listing";
+const CORE_LISTING = 'listing';
 
 export class Listing extends Solr {
 

@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon --exec NODE_ENV=development PORT=3001 babel-node ./bin/server",
     "test:unit": "cross-env NODE_ENV=test nyc mocha tests/unit --require babel-register --require babel-polyfill",
-    "test:integration": "cross-env NODE_ENV=test nyc mocha tests/integration"
+    "test:integration": "cross-env NODE_ENV=test nyc mocha tests/integration",
+    "eslint:fix": "eslint ./ --fix"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "body-parser": "^1.18.2",
     "dateformat": "^3.0.2",
     "express": "^4.16.2",
+    "lodash": "^4.17.4",
     "solr-client": "^0.7.0",
     "winston": "^2.4.0"
   },
