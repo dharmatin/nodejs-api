@@ -1,8 +1,8 @@
 {
   "development": {
-    "host": "10.201.30.25",
+    "host": "",
     "port": 6379,
-    "password": "EYm8GTY16Hte"
+    "password": ""
   },
   "beta": {
     "host": "",
